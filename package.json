@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "axios": "^0.19.0",
+    "semantic-ui-calendar-react": "^0.15.0"
+  }
+}

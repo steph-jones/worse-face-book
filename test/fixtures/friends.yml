@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  top_friend: false
+  user: one
+  profile_page: one
+
+two:
+  top_friend: false
+  user: two
+  profile_page: two

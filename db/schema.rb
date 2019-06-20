@@ -10,28 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_213318) do
+ActiveRecord::Schema.define(version: 2019_06_19_211735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "about_mes", force: :cascade do |t|
-    t.text "bio"
+  create_table "comments", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.text "top_friend", default: [], array: true
+    t.text "friends_connections", default: [], array: true
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "heart"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
     t.string "name"
+    t.text "bio"
     t.string "nickname"
-    t.string "current_city"
     t.string "image"
+    t.string "email"
     t.string "relationship"
     t.date "birthday"
+    t.string "current_city"
     t.string "hometown"
     t.string "job_title"
     t.string "fav_quote"
     t.string "fav_book"
     t.string "fav_movie"
+    t.string "spirit_animal"
+    t.string "gender"
+    t.string "superhero"
+    t.string "alumni"
+    t.string "constellation"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_about_mes_on_user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,15 +86,7 @@ ActiveRecord::Schema.define(version: 2019_06_17_213318) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "name"
-    t.string "nickname"
-    t.string "image"
     t.string "email"
-    t.string "relationship"
-    t.date "birthday"
-    t.string "current_city"
-    t.string "hometown"
-    t.text "intro_bio"
-    t.string "job_title"
     t.json "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -70,5 +96,8 @@ ActiveRecord::Schema.define(version: 2019_06_17_213318) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "about_mes", "users"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "lists", "users"
+  add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "users"
 end

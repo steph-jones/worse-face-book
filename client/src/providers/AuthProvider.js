@@ -22,6 +22,7 @@ export class AuthProvider extends React.Component {
     };
 
     handleRegister = (user, history) => {
+      // debugger
         axios.post("/api/auth", user)
             .then( res => {
                 // debugger

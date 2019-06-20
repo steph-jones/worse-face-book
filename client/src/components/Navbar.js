@@ -50,6 +50,13 @@ const Navbar = (props) => {
                     active={props.location.pathname === '/'}
                     />
                 </Link>
+                <Link to='/profiles'>
+                    <Menu.Item
+                    id='profiles'
+                    name='profiles'
+                    active={props.location.pathname === '/profiles'}
+                />
+        </Link>  
                 { rightNavItems(auth) }
             </Menu>
         }
