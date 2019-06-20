@@ -25,7 +25,7 @@ const ProfileForm = (props) => {
 
   const handleSubmit = (e) => {
   e.preventDefault();
-  axios.post("/api/blogs", { nickname: nickname.value, bio: bio.value, 
+  axios.post(`/api/blogs`, { nickname: nickname.value, bio: bio.value, 
     relationship: relationship.value, current_city: current_city.value,
     hometown: hometown.value, job_title: job_title.value, fav_quote: fav_quote.value,
     fav_book: fav_book.value, fav_movie: fav_movie.value, spirit_animal: spirit_animal.value,})
@@ -39,7 +39,7 @@ const ProfileForm = (props) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Form.Group widths="equal">
+        {/* <Form.Group widths="equal"> */}
           <Form.Input
             label="Nickname"
             placeholder="Nickname"
@@ -109,7 +109,7 @@ const ProfileForm = (props) => {
             name="spirit animal"
             { ...spirit_animal }
           />
-        </Form.Group>
+        {/* </Form.Group> */}
         <Form.Button color="blue" inverted>Submit</Form.Button>
       </Form>
       <br/>

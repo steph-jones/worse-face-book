@@ -2,7 +2,7 @@ class Api::ProfileController < ApplicationController
   before_action :set_profile, only: [:show, :update]
     
   def index
-      render json: current_user.profile_pages
+      render json: Profile.all
     #   render json: User.random_friend(current_user.liked_friends)
   end
 

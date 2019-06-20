@@ -3,13 +3,14 @@ import axios from "axios";
 import { List, Header, Segment, Button, } from "semantic-ui-react";
 import ProfileForm from "./ProfileForm"
 
-const Profiles = (props) => {
+
+const ProfileEdit = (props) => {
   const [profiles, setProfiles] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
 
   useEffect( () => {
-    axios.get(`/api/profile`)
+    axios.get(`/api/profiles/${id}`)
     // debugger
     .then( res => {setProfiles(res.data)}
     );
@@ -44,39 +45,5 @@ const Profiles = (props) => {
   );
 };
 
-// class Profiles extends Component {
-//     state = { profiles: [], }
 
-//     componentDidMount() {
-//         axios.get("/api/profiles")
-//         .then( res => {
-//             this.setState({ profiles: res.data, });
-//         });
-//     };
-
-//     renderProfiles = () => {
-//         const { profiles, } = this.state;
-//         return profiles.map( profile => 
-//             <Segment key={profile.id}>
-//                 <List.Header as="h3">{profile.name}</List.Header>
-//                 <List.Description>
-//                     { profile.bio }
-//                 </List.Description>
-//             </Segment>
-//         );
-//     };
-
-//     render() {
-//         return(
-//             <>
-//                 <Header as="h1">Profile Pages</Header>
-//                 <br/>
-//                 <List>
-//                     { this.renderProfiles() }
-//                 </List>
-//             </>
-//         );
-//     };
-// };
-
-export default Profiles;
+export default ProfileEdit;
