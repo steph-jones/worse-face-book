@@ -21,7 +21,9 @@ class Login extends React.Component {
   
     return (
       <Segment basic>
-        <Header as='h1' textAlign='center' color="teal">Login</Header>
+        <Segment inverted color='green' tertiary>
+          <Header as='h1' textAlign='center' color="white">Login</Header>
+        </Segment>
         <Form onSubmit={this.handleSubmit}>
           <Form.Input
             label="Email"

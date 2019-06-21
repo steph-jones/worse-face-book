@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   namespace :api do
 
-    resources :profiles, only: [:index, :show, :update]
-    resources :lists, only: [:show, :update]
-    resources :posts, only: [:index, :show, :update]
-    resources :comments, only: [:index, :update]
+    resources :profile, only: [:index, :show, :update]
+    resources :list, only: [:show, :update]
+    resources :post, only: [:index, :show, :update]
+    resources :comment, only: [:index, :update]
     
     get "my_profile", to: "profile#my_profile"
+    get "my_friends", to: "profile/my_friends"
   end
 end

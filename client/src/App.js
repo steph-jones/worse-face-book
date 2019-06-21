@@ -10,6 +10,9 @@ import { Container, } from "semantic-ui-react";
 import FetchUser from './components/FetchUser';
 import Profiles from './components/profiles/Profiles';
 import MyProfile from './components/profiles/MyProfile';
+import PublicProfile from './components/profiles/PublicProfile';
+import MyFriends from './components/friends/MyFriends';
+
 
 const App = () => (
   <Fragment>
@@ -21,9 +24,9 @@ const App = () => (
         <ProtectedRoute exact path="/profiles" component={Profiles} />
         {/* <ProtectedRoute exact path="/profiles/new" component={ProfileForm} /> */}
         {/* <ProtectedRoute exact path="/profiles/:id/edit" component={ProfileForm} /> */}
-        {/* <ProtectedRoute exact path="/my_friends" component={MyFriends} /> */}
+        <ProtectedRoute exact path="/my_friends" component={MyFriends} />
         <ProtectedRoute exact path="/my_profile" component={MyProfile} />
-        {/* <Route exact path="/profiles/:id" component={Profile} /> */}
+        <Route exact path="/profile/:id" component={PublicProfile} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/" component={Home} />

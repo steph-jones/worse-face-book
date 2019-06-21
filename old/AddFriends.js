@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { Card, Icon, Image, List, Header, Grid, Segment, Button } from "semantic-ui-react";
 import ProfileForm from "./ProfileForm"
 
-const Profiles = (props) => {
+const AddFriends = (props) => {
   const [profiles, setProfiles] = useState([]);
+  const [friends, setFriends] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
 
@@ -16,8 +17,11 @@ const Profiles = (props) => {
     );
   }, []);
   
-  const addProfile = (profile) => setProfiles([ ...profiles, profile, ]);
-  
+  const AddClick = (id) => {
+    axios.put(`/api/list/${id}`)
+    .then( () => setFriends(friends.filter( c => c.id !== id)) )
+  };
+
   const renderProfiles = () => { // debugger;
       return (
     <Grid >
@@ -26,8 +30,7 @@ const Profiles = (props) => {
             { profiles.map( profile => 
                 <Grid.Column width={4}>
                     <Segment padded="small" vertical>
-                    <Link to={`/profile/${profile.id}`}>
-                    <Card link={`/profile/${profile.id}`} color="blue">
+                    <Card color="blue" onclick={AddClick()}>
                         <Image src={ profile.image } wrapped ui={false}/> 
                         <Card.Content>
                             <Card.Header color="blue" >{ profile.name}</Card.Header>
@@ -45,7 +48,6 @@ const Profiles = (props) => {
                             </a>
                         </Card.Content>
                     </Card>
-                    </Link>
                     </Segment>
                 </Grid.Column>
             )}
@@ -57,9 +59,7 @@ const Profiles = (props) => {
   return(
       <>
           <br/>
-          <Segment raised textAlign="center" inverted color='blue' tertiary>
-            <Header as="h1" textAlign="centered" color="white">All User's Profile Pages</Header>
-            </Segment>
+          <Header as="h1">All User's Profile Pages</Header>
           <br/>
           {/* <List> */}
             { renderProfiles() }
@@ -69,4 +69,4 @@ const Profiles = (props) => {
 };
 
 
-export default Profiles;
+export default AddFriends;

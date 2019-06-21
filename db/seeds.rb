@@ -89,10 +89,16 @@
 
 # puts(" Users and Profiles Created/ Profiles Updated")
 
-# 59.times do |a|
+# 60.times do |a|
 #     Profile.update(a+1,
-#         image: Faker::Avatar.image("name", "300x300", "png", "set5"),
+#         image: Faker::Avatar.image(a, "300x300", "png", "set5"),
 #     )
 # end
 
-# puts("59 Profiles updated")
+60.times do |a|
+    Profile.update(a+1,
+        year_joined: Random.new.rand(2008..2019)
+    )
+end
+
+puts("60 Profiles updated")

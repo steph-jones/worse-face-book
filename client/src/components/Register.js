@@ -27,7 +27,9 @@ class Register extends React.Component {
     
     return (
       <Segment basic>
-        <Header as='h1' textAlign='center' color="teal">Register</Header>
+        <Segment inverted color='green' tertiary>
+          <Header as='h1' textAlign='center' color="white">Register</Header>
+        </Segment>
         <Form onSubmit={this.handleSubmit}>
           <Form.Input
             label="Name"

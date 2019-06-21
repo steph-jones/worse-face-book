@@ -1,5 +1,5 @@
 class Api::ProfileController < ApplicationController
-  before_action :set_profile, only: [:show, :update]
+  # before_action :set_profile, only: [:show, :update]
   before_action :authenticate_user!    
 
   def index
@@ -8,7 +8,7 @@ class Api::ProfileController < ApplicationController
   end
 
   def show
-    render json: Profile.find_by(user_id)
+    render json: Profile.find(params[:id])
   end 
 
   def create
@@ -44,10 +44,9 @@ class Api::ProfileController < ApplicationController
 
 
   def my_friends
-    current_user.liked_profiles << params[:id].to_i
-    current_user.save
+    # current_user.liked_profiles << params[:id].to_i
+    # current_user.save
     render json: User.liked(current_user.liked_profiles)
-
   end
 
   def top_friends

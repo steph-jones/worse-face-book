@@ -5,16 +5,16 @@ import ProfileForm from "./ProfileForm"
 import ConnectedProfileEdit from "./ProfileEdit"
 import {AuthContext,} from "../../providers/AuthProvider.js"
 
-const MyProfile = (props) => {
+const PublicProfile = (props) => {
   const [profile, setProfile] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [showProfile, setShowProfile] = useState(true);
   const auth = useContext(AuthContext)
 
 
-  useEffect( () => {
-    axios.get(`/api/my_profile`)
-    .then( res => // {debugger} 
+  useEffect( () => { 
+    axios.get(`/api/profile/${props.match.params.id}`) // ${props.match.params.id}
+    .then( res => //{debugger} 
       {setProfile(res.data)}
     )
     .catch(err => {debugger})
@@ -47,7 +47,7 @@ const MyProfile = (props) => {
             <List>
               <List.Item>
                 <List.Header>Name</List.Header>
-                { profile.name }
+                {profile.name ? profile.name : "~~~"}
                 <hr color="lightblue"/>
               </List.Item>
               <List.Item>
@@ -125,46 +125,19 @@ const MyProfile = (props) => {
       );
   };
 
-  const HandleClick = () => {
-    setShowForm(!showForm)
-    setShowProfile(!showProfile)
-  }
-
-  const FriendClick = () => {
-  }
-
-  const EditProfile = () => {
-  }
-
-  // const renderCards = () => {
-  //   // map through profile do |i|
-  //   return (
-  //   <br/> 
-  //   <Card key={profile.i}
-  //   )
-  // }
-
+  
   return(
     <Container centered>
       <br/>
       <Segment raised textAlign="center" inverted color='blue' tertiary>
-      <Header as="h1" textAlign="centered" color="white">My Profile</Header>
+      <Header as="h1" textAlign="centered" color="white">{profile.name}'s Profile</Header>
       </Segment>
       <Grid>
         <Grid.Column width={4}>
           { ProfileCard() }
-          <Button inverted color="red" onClick={() => HandleClick()}>
-            {(showForm && showProfile) ? "Save Changes" : "Edit My Profile"}
-          </Button>
-          <br/>
-          <br/>
-          <Button inverted color="green" onClick={() => FriendClick()}>
-            Add friends
-          </Button>
         </Grid.Column>
         <Grid.Column width={12}>
-          {showProfile && <RenderMyProfile toggleForm={setShowProfile} />} 
-          {showForm && <ProfileForm toggleForm={setShowForm} />} 
+          <RenderMyProfile/>
         </Grid.Column>
       </Grid>
            
@@ -172,4 +145,4 @@ const MyProfile = (props) => {
   );
 };
 
-export default MyProfile;
+export default PublicProfile;

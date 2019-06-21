@@ -6,15 +6,26 @@
 - VIEWS 
     - profile form 
         - registration page pt. 2 create profile
-        - edit profile page
+        - edit profile form working on MyProfile
     - friends list
         - pick friends page
         - edit friends list page
         - pick top friends
-    - my private profile
-    - my public profile
-    - my friends public profiles
-    - all public profiles cards list 
-    - my friends cards list
+        - button on public profiles of NON friends to add friend / YES friends remove friend button
+            ---> (so separate public profile page for others vs. own id)
+    - my friends cards list 
+    - posts 
+        - home page feed of friends posts 
+        - my profile has my posts 
+        - switch MyProfile to the about me page
+        - make a new post top of the home page
+        - friends pages have post feeds of their posts
+    - comments 
+        - add comments to posts
 - verify private routes, etc... 
 
+DONE
+    - my private profile (MyProfile)
+    - my public profile (PublicProfile)
+    - my friends public profiles (PublicProfile)
+    - all public profiles cards list (Profiles)
