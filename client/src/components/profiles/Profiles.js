@@ -33,10 +33,6 @@ const Profiles = (props) => {
           <br/>
           <Header as="h1">Profile Pages</Header>
           <br/>
-          {showForm && <ProfileForm toggleForm={setShowForm} add={addProfile}/>}
-          <Button inverted color="orange" onClick={() => setShowForm(!showForm)}>
-              {showForm ? "Close Form" : "Show Form"}
-          </Button>
           <List>
               { renderProfiles() }
           </List>

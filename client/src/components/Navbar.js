@@ -44,10 +44,17 @@ const Navbar = (props) => {
         { auth => 
             <Menu pointing secondary color="green">
                 <Link to='/'>
-                <Menu.Item
+                    <Menu.Item
                     name='home'
                     id='home'
                     active={props.location.pathname === '/'}
+                    />
+                </Link>
+                <Link to='/my_profile'>
+                    <Menu.Item
+                    name='my profile'
+                    id='my profile'
+                    active={props.location.pathname === '/my_profile'}
                     />
                 </Link>
                 <Link to='/profiles'>
