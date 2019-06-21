@@ -23,19 +23,20 @@ class User < ActiveRecord::Base
     self.create_list!
   end
 
-  # serialize :friends, Array
+  # serialize :liked_profiles, Array
+  # serialize :top_friends, Array
 
-  # def self.random_friend(ids)
+  # # def self.random_friend(ids)
+  # #   ids = ids.empty? ? [0] : ids
+  # #   About_me.where("id NOT IN (?)", ids).order("RANDOM()")
+  # # end
+
+  # def self.liked(ids)
   #   ids = ids.empty? ? [0] : ids
-  #   About_me.where("id NOT IN (?)", ids).order("RANDOM()")
+  #   About_me.where("id IN (?)", ids)
   # end
 
-  def self.liked(ids)
-    ids = ids.empty? ? [0] : ids
-    About_me.where("id IN (?)", ids)
-  end
-
-  # def self.top_friends(ids)
+  # def self.topped(ids)
   #   ids = ids.empty? ? [0] : ids
   #   About_me.where("id IN (?)", ids)
   # end

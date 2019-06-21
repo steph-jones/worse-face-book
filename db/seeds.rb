@@ -58,36 +58,36 @@
 #     )
 # end
 
-1.times do |i|
-  User.create(
-        name: Faker::Name.name,
-        email: "test#{i+60}@test.com",
-        password: 'password', 
-        password_confirmation: 'password'
-  )
-end
+# 1.times do |i|
+#   User.create(
+#         name: Faker::Name.name,
+#         email: "test#{i+60}@test.com",
+#         password: 'password', 
+#         password_confirmation: 'password'
+#   )
+# end
 
-1.times do |a|
-  Profile.update(a+60,
-    bio: Faker::Quote.most_interesting_man_in_the_world,
-    hometown: Faker::Address.city,
-    current_city: Faker::Address.city,
-    birthday: Faker::Date.birthday(18, 65),
-    relationship: @relationship.sample,
-    fav_quote: "#{Faker::TvShows::Seinfeld.quote} - Seinfeld",
-    fav_book: @books.sample,
-    job_title: Faker::Job.title,
-    image: Faker::Avatar.image("name", "300x300", "png", "set5"),
-    fav_movie: @movies.sample,
-    spirit_animal: Faker::Creature::Animal.name,
-    gender: Faker::Gender.type,
-    constellation: Faker::Space.constellation,
-    superhero: "#{Faker::Superhero.suffix} #{Faker::Superhero.name} with the power of #{Faker::Superhero.power}",
-    alumni: Faker::University.name,
-  )
-end
+# 1.times do |a|
+#   Profile.update(a+60,
+#     bio: Faker::Quote.most_interesting_man_in_the_world,
+#     hometown: Faker::Address.city,
+#     current_city: Faker::Address.city,
+#     birthday: Faker::Date.birthday(18, 65),
+#     relationship: @relationship.sample,
+#     fav_quote: "#{Faker::TvShows::Seinfeld.quote} - Seinfeld",
+#     fav_book: @books.sample,
+#     job_title: Faker::Job.title,
+#     image: Faker::Avatar.image("name", "300x300", "png", "set5"),
+#     fav_movie: @movies.sample,
+#     spirit_animal: Faker::Creature::Animal.name,
+#     gender: Faker::Gender.type,
+#     constellation: Faker::Space.constellation,
+#     superhero: "#{Faker::Superhero.suffix} #{Faker::Superhero.name} with the power of #{Faker::Superhero.power}",
+#     alumni: Faker::University.name,
+#   )
+# end
 
-puts(" Users and Profiles Created/ Profiles Updated")
+# puts(" Users and Profiles Created/ Profiles Updated")
 
 # 59.times do |a|
 #     Profile.update(a+1,

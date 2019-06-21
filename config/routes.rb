@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :update]
     resources :comments, only: [:index, :update]
     
+    get "my_profile", to: "profile#my_profile"
   end
 end

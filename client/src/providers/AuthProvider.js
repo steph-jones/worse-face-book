@@ -3,7 +3,7 @@ import axios from "axios";
 
 // three things you need to make: provider, consumer, and context itself 
 
-const AuthContext = React.createContext();
+export const AuthContext = React.createContext();
 export const AuthConsumer = AuthContext.Consumer;
 
 export class AuthProvider extends React.Component {
