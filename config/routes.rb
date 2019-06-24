@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :comment, only: [:index, :update]
     
     get "my_profile", to: "profile#my_profile"
-    get "my_friends", to: "profile/my_friends"
+    get "my_friends", to: "profile#my_friends"
+    get "welcome", to: "profile#welcome"
   end
 end

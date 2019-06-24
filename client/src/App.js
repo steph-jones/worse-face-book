@@ -12,6 +12,7 @@ import Profiles from './components/profiles/Profiles';
 import MyProfile from './components/profiles/MyProfile';
 import PublicProfile from './components/profiles/PublicProfile';
 import MyFriends from './components/friends/MyFriends';
+import ConnectedRegisterWelcome from './components/RegisterWelcome';
 
 
 const App = () => (
@@ -24,6 +25,7 @@ const App = () => (
         <ProtectedRoute exact path="/profiles" component={Profiles} />
         {/* <ProtectedRoute exact path="/profiles/new" component={ProfileForm} /> */}
         {/* <ProtectedRoute exact path="/profiles/:id/edit" component={ProfileForm} /> */}
+        <ProtectedRoute exact path="/welcome" component={ConnectedRegisterWelcome} />
         <ProtectedRoute exact path="/my_friends" component={MyFriends} />
         <ProtectedRoute exact path="/my_profile" component={MyProfile} />
         <Route exact path="/profile/:id" component={PublicProfile} />

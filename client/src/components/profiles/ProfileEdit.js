@@ -46,15 +46,14 @@ class ProfileEdit extends React.Component {
         <Form onSubmit={this.handleSubmit}>
           <Form.Input
             label="Name"
-            type="text"
             name="name"
             value={name}
+            placeholder='Name'
             onChange={this.handleChange}
             required
           />
           <Form.Input
             label="Nickname"
-            type="text"
             name="nickname"
             value={nickname}
             placeholder={nickname ? nickname : "null"}

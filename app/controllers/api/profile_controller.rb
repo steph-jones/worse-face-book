@@ -21,7 +21,7 @@ class Api::ProfileController < ApplicationController
   end
 
   def update
-      @profile = current_user.profile.find(params[:id])
+      @profile = Profile.find(params[:id])
       if @profile.update(profile_params)
           render json: @profile
       else
@@ -31,6 +31,19 @@ class Api::ProfileController < ApplicationController
       # current_user.liked_friends << params[:id].to_i
       # current_user.save
   end
+
+  def welcome
+    @profile = current_user.profile.find(params[:id])
+    if @profile.update(profile_params)
+        render json: @profile
+    else
+        render json: @profile.errors, status: 422
+    end
+
+    # current_user.liked_friends << params[:id].to_i
+    # current_user.save
+end
+
 
   def my_profile
     # binding.pry
@@ -67,7 +80,7 @@ class Api::ProfileController < ApplicationController
 
   def profile_params
       params.require(:profile).permit(:bio, :name, :nickname, 
-          :current_city, :image, :email, :relationship, :birthday, :hometown,
+          :current_city, :image, :email, :relationship, :birthday, :hometown, :gender,
           :job_title, :fav_book, :fav_movie, :fav_quote, :spirit_animal, :alumni, :constellation)
   end
 end
